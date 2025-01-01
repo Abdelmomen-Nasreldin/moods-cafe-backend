@@ -1,7 +1,7 @@
 // routes/orders.js
 import express from "express";
 import jwt from "jsonwebtoken";
-import Order from "../models/Order";
+import Order from "../models/Order.js";
 
 const router = express.Router();
 const JWT_SECRET = "your_secret_key";
@@ -36,4 +36,4 @@ router.post("/sync", authenticate, async (req, res) => {
   res.json({ message: "Orders synced successfully" });
 });
 
-module.exports = router;
+export default router;
