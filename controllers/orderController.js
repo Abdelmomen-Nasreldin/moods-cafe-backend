@@ -1,25 +1,23 @@
-export const addOrderItems = async (req, res) => {
-    res.send("add order items");
+// controllers/orderController.js
+import Order from "../models/Order.js";
+
+const getOrders = async (req, res) => {
+  try {
+    const orders = await Order.find();
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error", error });
+  }
 };
 
-export const getOrderById = async (req, res) => {
-    res.send("get order by id");
+const syncOrders = async (req, res) => {
+  try {
+    const { newOrders } = req.body;
+    await Order.insertMany(newOrders);
+    res.json({ message: "Orders synced successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error", error });
+  }
 };
 
-export const updateOrderToPaid = async (req, res) => {
-    res.send("update order to paid");
-};
-
-export const getMyOrders = async (req, res) => {
-    res.send("get my orders");
-};
-
-export const getOrders = async (req, res) => {
-    res.send("get orders");
-};
-
-export const updateOrderToDelivered = async (req, res) => {
-    res.send("update order to delivered");
-};
-
-
+export { getOrders, syncOrders };
