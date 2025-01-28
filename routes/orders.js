@@ -1,7 +1,8 @@
 // routes/orders.js
 import express from "express";
 import { getOrders, syncOrders } from "../controllers/orderController.js";
-import { authenticate, authorize, ROLES } from "../middlewares/authMiddleware.js";
+import { authenticate, authorize } from "../middlewares/authMiddleware.js";
+import { ROLES } from "../constants/user-roles.js";
 
 const router = express.Router();
 
