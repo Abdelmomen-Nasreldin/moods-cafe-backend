@@ -1,10 +1,12 @@
 // const bcrypt = require("bcrypt");
 import bcrypt from "bcrypt";
+import { ROLES } from "../constants/user-roles.js";
+
 // Predefined usernames and passwords
-const users = [
-  { username: "cashier", password: "cashier123", role: "admin" },
-  { username: "analyst1", password: "analyst123", role: "reader" },
-  { username: "analyst2", password: "analyst123", role: "reader" },
+const users  = [
+  { username: 'owner', password: 'moods-admin', role: ROLES.ADMIN },
+  { username: 'cashier', password: 'moods2025', role: ROLES.CASHIER },
+  { username: 'owner read only', password: 'moods-read', role: ROLES.READ_ONLY },
 ];
 
 export const hashPasswords = async () => {

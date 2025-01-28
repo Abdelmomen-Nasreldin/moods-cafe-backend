@@ -1,13 +1,6 @@
 // middlewares/authMiddleware.js
 import jwt from "jsonwebtoken";
 
-const ROLES = {
-  ADMIN : 'admin',
-  OWNER : 'owner',
-  CASHIER : 'cashier',
-  READ_ONLY : 'read-only'
-};
-
 function authenticate(req, res, next) {
   const token = req.headers.authorization?.split(" ")[1];
   if (!token) return res.status(401).json({ message: "Unauthorized" });
@@ -29,4 +22,4 @@ function authorize(roles) {
   };
 }
 
-export { authenticate, authorize, ROLES };
+export { authenticate, authorize };

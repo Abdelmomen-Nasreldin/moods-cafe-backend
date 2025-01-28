@@ -1,4 +1,3 @@
-// controllers/orderController.js
 import Order from "../models/Order.js";
 
 const getOrders = async (req, res) => {
@@ -41,6 +40,5 @@ const syncOrders = async (req, res) => {
     res.status(500).json({ message: 'Sync failed', error: error.message });
   }
 };
-
 
 export { getOrders, syncOrders };
